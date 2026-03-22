@@ -52,8 +52,36 @@ nav .home-link{
 .open-sidebar-button, .close-sidebar-button{
     display: none;
 }
+@media screen and (max-width: 450px) {
+    .link-container{
+        flex-direction: column;
+        align-items: flex-start;
 
-/* ===================== SECTION BASE ===================== */
+        position:fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 300px;
+
+        background-color: #7a8070;
+        box-shadow: -5px 0 5px rgba(0,0,0,0.5);
+        transition: 0.75s ease-out;
+    }
+    nav a{
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+    }
+    .open-sidebar-button, .close-sidebar-button{
+        padding: 20px;
+        display: block;
+    }
+    #sidebar-active:checked ~ .link-container{
+        right: 0;
+    }
+}
 section{
     height: 100vh;
 }
@@ -85,8 +113,6 @@ section{
     max-width: 600px;
     margin: 0 auto;
 }
-
-/* ===================== SECTION 2: OUR BRAND ===================== */
 .section2{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -112,7 +138,7 @@ section{
 }
 .section2-left-head h2{
     font-size: 60px;
-    color: black;
+    color: #321612;
 }
 .section2-left-content{
     margin: auto;
@@ -135,8 +161,6 @@ section{
 .section2-right-img{
     width: 60%;
 }
-
-/* ===================== SECTION 3: ป้าจำปี ===================== */
 .section3{
     display: flex;
     justify-content: center;
@@ -154,8 +178,6 @@ section{
     text-indent: 2em;
     margin-right: 50px;
 }
-
-/* ===================== SECTION 4: STORY ===================== */
 .section4{
     display: grid;
     grid-template-columns: 1fr 1.1fr;
@@ -219,21 +241,13 @@ section{
     text-align: justify;
     text-indent: 2em;
 }
-
-/* ===================== SECTION 5: TIE-DYE ===================== */
 .section-5{
-    height: 100vh;
+     height: 100vh;
     background-image: url('/web/section5.webp');
     background-size: cover;
     background-position: center;
     position: relative;
 }
-.tie-dye-title {
-    font-size: clamp(60px, 18vw, 220px);
-    width: 100%;
-}
-
-/* ===================== SECTION 6: HOW TO MAKE ===================== */
 .section-6{
     position: relative;
     height: auto;
@@ -301,8 +315,6 @@ section{
     font-size: 24px;
     color: white
 }
-
-/* ===================== SECTION 7: OUR PRODUCT ===================== */
 .section7{
     display: flex;
     flex-direction: row;
@@ -346,6 +358,7 @@ section{
     width: 100%;
     height: 100%;
     object-fit: cover;
+
 }
 .section7-column a {
     text-decoration: none; 
@@ -356,8 +369,6 @@ section{
     height: 100%;
     position: relative;
 }
-
-/* ===================== SECTION 8: HISTORY ===================== */
 .section8{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -401,8 +412,6 @@ section{
     font-size: 24px;
     color: #faf7ef;
 }
-
-/* ===================== FOOTER ===================== */
 .footer{
     width: 100%;
     display: flex;
@@ -447,10 +456,8 @@ section{
     color: #3a1f16;
 }
 .lazy{
-    width: 100%;
+    width: 100%;;
 }
-
-/* ===================== OTHER PAGES ===================== */
 .page1{
     position: relative;
     height: auto;
@@ -535,91 +542,80 @@ section{
     gap: 30px;
     margin: 20px;
     margin-top: 65px;
+    
 }
 .page2-img{
     width: 70%;
 }
-
-/* ============================================================
-   RESPONSIVE: TABLET (max-width: 900px)
-   ============================================================ */
 @media screen and (max-width: 900px) {
-    /* Section heights — allow content to breathe */
-    section {
+    section{
         height: auto;
         min-height: 100vh;
     }
-
-    /* Section 2: Our Brand — stack vertically */
-    .section2 {
+    .section2{
         grid-template-columns: 1fr;
         padding: 80px 30px 40px;
         gap: 0;
     }
-    .section2-left {
+    .section2-left{
         height: auto;
     }
-    .section2-left-head {
+    .section2-left-head{
         margin: 30px auto 20px;
     }
-    .section2-left-head h1 {
-        font-size: clamp(50px, 12vw, 110px);
+    .section2-left-head h1{
+        font-size: clamp(50px,12vw,110px);
     }
-    .section2-left-head h2 {
-        font-size: clamp(28px, 7vw, 60px);
+    .section2-left-head h2{
+        font-size: clamp(28px,7vw,60px);
     }
-    .section2-left-content {
+    .section2-left-content{
         width: 90%;
         margin: 10px auto 30px;
     }
-    .section2-left-content p {
+    .section2-left-content p{
         font-size: 17px;
     }
-    .section2-right {
+    .section2-right{
         padding-bottom: 40px;
     }
-    .section2-right-img {
+    .section2-right-img{
         width: 55%;
     }
-
-    /* Section 3: ป้าจำปี — stack image on top */
     .section3 {
         flex-direction: column;
         padding: 80px 30px 40px;
         gap: 30px;
     }
-    .section3-img {
+    .section3-img{
         width: 70%;
     }
-    .section3-p {
+    .section3-p{
         font-size: 18px;
-        margin: 0 10px;
+        margin:0 10px;
         text-align: justify;
     }
-
-    /* Section 4: Story — stack vertically, fix absolute positions */
     .section4 {
         display: flex;
         flex-direction: column;
         padding: 80px 30px 40px;
     }
-    .section4-left {
+    .section4-left{
         align-items: center;
     }
-    .section4-left-content {
+    .section4-left-content{
         margin-top: 20px;
     }
-    .section4-left-content p {
+    .section4-left-contnet p{
         width: 100%;
         font-size: 17px;
     }
-    .section4-left-img {
+    .section4-left-img{
         height: auto;
         width: 60%;
         margin: 20px auto;
     }
-    /* Remove absolute positioning — flow naturally */
-    .section4-right {
+    .section4-right{
         position: static;
         margin-top: 20px;
         display: flex;
@@ -628,7 +624,7 @@ section{
         gap: 20px;
         padding-bottom: 40px;
     }
-    .section4-right-img {
+     .section4-right-img {
         position: static;
         width: 55%;
     }
@@ -649,8 +645,6 @@ section{
     .section4-right-conclusion p {
         font-size: 16px;
     }
-
-    /* Section 6: How to make — narrow margins, 1 column grid */
     .second_grid {
         grid-template-columns: 1fr;
         margin: 80px 30px 40px;
@@ -665,21 +659,19 @@ section{
     .text {
         font-size: 18px;
     }
-
-    /* Section 7: Products — wrap into 2 columns */
     #section4.section {
         height: auto;
         min-height: 100vh;
         padding-bottom: 40px;
     }
     .section7 {
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 20px;
         padding: 0 20px;
     }
     .section7-column {
-        width: 45%;
-        height: 45vw;
+        width: 85%;
+        height: 55vw;
     }
     .section7-img-head {
         font-size: 160%;
@@ -687,9 +679,7 @@ section{
     .section7-img-des {
         font-size: 100%;
     }
-
-    /* Section 8: History — stack vertically */
-    .section8 {
+     .section8 {
         grid-template-columns: 1fr;
         height: auto;
     }
@@ -722,8 +712,6 @@ section{
     .section8-des {
         font-size: 17px;
     }
-
-    /* Footer — stack vertically */
     .footer {
         flex-direction: column;
         align-items: center;
@@ -738,149 +726,5 @@ section{
         width: 80%;
         max-width: 350px;
         height: 200px;
-    }
-}
-
-/* ============================================================
-   RESPONSIVE: MOBILE (max-width: 500px)
-   ============================================================ */
-@media screen and (max-width: 500px) {
-    /* Sidebar nav */
-    .link-container{
-        flex-direction: column;
-        align-items: flex-start;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        z-index: 10;
-        width: 300px;
-        background-color: #7a8070;
-        box-shadow: -5px 0 5px rgba(0,0,0,0.5);
-        transition: 0.75s ease-out;
-    }
-    nav a{
-        box-sizing: border-box;
-        height: auto;
-        width: 100%;
-        padding: 20px 30px;
-        justify-content: flex-start;
-    }
-    .open-sidebar-button, .close-sidebar-button{
-        padding: 20px;
-        display: block;
-    }
-    #sidebar-active:checked ~ .link-container{
-        right: 0;
-    }
-
-    /* Hero section */
-    .section1-content p {
-        font-size: 14px;
-    }
-
-    /* Section 2 */
-    .section2-left-head h1 {
-        font-size: 14vw;
-    }
-    .section2-left-head h2 {
-        font-size: 8vw;
-    }
-    .section2-left-content p {
-        font-size: 14px;
-    }
-    .section2-right-img {
-        width: 75%;
-    }
-
-    /* Section 3 */
-    .section3-img {
-        width: 85%;
-    }
-    .section3-p {
-        font-size: 14px;
-    }
-
-    /* Section 4 */
-    .section4-left-content p {
-        font-size: 14px;
-    }
-    .section4-right-content p,
-    .section4-right-conclusion p {
-        font-size: 14px;
-    }
-    .section4-left-img {
-        width: 80%;
-    }
-    .section4-right-img {
-        width: 75%;
-    }
-
-    /* Section 5: Tie-dye title override */
-    .tie-dye-title {
-        font-size: clamp(44px, 15vw, 120px) !important;
-    }
-
-    /* Section 6 */
-    .second_grid {
-        margin: 70px 15px 30px;
-    }
-    .text_header {
-        font-size: 36px;
-    }
-    .subhead {
-        font-size: 40px;
-    }
-    .text {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    /* Section 7: Products — 1 column on small phones */
-    .section7-column {
-        width: 85%;
-        height: 55vw;
-    }
-    .section7-h {
-        font-size: 36px;
-    }
-
-    /* Section 8 */
-    .section8-img1 {
-        width: 45%;
-    }
-    .section8-img2 {
-        width: 35%;
-    }
-    .section8-head {
-        font-size: 11px;
-    }
-    .section8-des {
-        font-size: 14px;
-    }
-
-    /* Footer */
-    .footer-right {
-        width: 90%;
-        height: 160px;
-    }
-    .footer-h1 {
-        font-size: 36px;
-    }
-
-    /* Page 2 product grid */
-    .page2-column {
-        grid-template-columns: 1fr 1fr;
-    }
-    .page2-img {
-        width: 90%;
-    }
-
-    /* Page 1 products */
-    .page1-product {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .page1-product img {
-        width: 40%;
     }
 }
